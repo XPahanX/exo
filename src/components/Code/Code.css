@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+pre {
+    @apply
+    flex
+}
+
+code {
+    @apply
+    rounded
+    bg-slate-200
+    w-full overflow-auto
+}
+
+code:hover {
+    @apply
+    bg-slate-300
+    !important
+}

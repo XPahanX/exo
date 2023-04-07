@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ul {
+    @apply
+    p-2 m-1
+    !important
+}
+
+li {
+    @apply
+    p-1 m-0 !important
+<<<<<<< HEAD
+=======
+}
+
+li::marker {
+    @apply
+    text-zinc-500
+>>>>>>> 0c2a066 (0.0.1 - alpha)
+}

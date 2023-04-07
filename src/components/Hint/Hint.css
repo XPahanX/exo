@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hint {
+    @apply
+    invisible absolute z-50
+    p-1
+    bg-transparent
+    shadow-md
+}

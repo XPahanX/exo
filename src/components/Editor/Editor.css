@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#editor {
+    @apply
+    h-full w-full max-w-5xl
+    m-auto
+    px-3 pt-3
+    overflow-auto
+}
+
+article {
+    @apply
+    pb-[50vh]
+}
