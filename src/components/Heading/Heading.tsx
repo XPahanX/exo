@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 import { Component, onCleanup, onError, onMount } from 'solid-js';
-=======
-import { Component, onCleanup, onMount, Show } from 'solid-js';
->>>>>>> 0c2a066 (0.0.1 - alpha)
 
 import "./Heading.css";
 
 const Heading: Component = () => {
-<<<<<<< HEAD
     let headingRef: HTMLHeadingElement;
 
     const handlerMouse = (e: MouseEvent) => {
@@ -21,31 +16,26 @@ const Heading: Component = () => {
     }
     
     const formating = () => {
-        // console.log(headingRef.innerHTML);
-        formating2(headingRef, []);
+        // select every tag
+        let allElements = Array.from(headingRef.querySelectorAll('*'));
+        console.log(headingRef);
+        
+        // allowed list of tags as a set for perf. UPPERCASE as in tagName
+        const allowedTags = new Set(['A', 'B']);
 
-        // while (delElem.length) {
-        //     var parent = delElem[0].parentNode;
-        //     if (parent) {
-        //         while (delElem[0].firstChild) {
-        //             parent.insertBefore(delElem[0].firstChild, delElem[0]);
-        //         }
-        //         parent.removeChild(delElem[0]);
-        //     }
-        // }
-        // headingRef.innerHTML = headingRef.innerHTML.replace(/<(.|\n)*?>/g, '');          
+        // to start from the end, from deeper tags
+        let allElementsReversed = allElements.reverse();
+
+        for (let tag of allElementsReversed) {
+            if (!allowedTags.has(tag.tagName)) {
+                // replace bad tag with its children
+                tag.replaceWith(...tag.childNodes);
+            }
+        }
+        console.log(headingRef);
     }
 
-    const formating2 = (currElem: HTMLElement, whiteList: Array<string>) => {
-        currElem.childNodes.forEach((child) => {
-            console.log(child)
-            if (child.hasChildNodes())
-                formating2(child as HTMLElement, whiteList);
-            if (!(child.nodeName in whiteList)) {              
-                
-            } 
-        });
-    }
+
 
     onMount(() =>{
         headingRef.addEventListener('click', handlerMouse);
@@ -66,27 +56,6 @@ const Heading: Component = () => {
             fds<div>fghd<div>ghfd<b>fds</b>hgfhs</div>g<i>hj</i></div>
             {/* A nice <b>fsdfs</b>house was found in <b>Toro<i>ff</i>nto</b>. */}
         </h1>
-=======
-    let hdrRef: HTMLHeadingElement;
-
-    const handlerFocus = (e: MouseEvent) => {
-        if (hdrRef.contains(e.target as Node) && hdrRef.textContent === '')
-            window.getSelection()?.setPosition(hdrRef, 0);
-    }
-
-    onMount(() =>{
-        document.addEventListener('click', handlerFocus);
-    })
-
-    onCleanup(() => {
-        document.removeEventListener('click', handlerFocus);
-    })
-
-    return (
-        <>
-        <h1 ref={hdrRef!} contentEditable data-placeholder='Heading 1'/>
-        </>
->>>>>>> 0c2a066 (0.0.1 - alpha)
     )
 }
 

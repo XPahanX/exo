@@ -10,7 +10,6 @@ const Code: Component = () => {
             window.getSelection()?.setPosition(codeRef.children[0], 0);
     }
 
-<<<<<<< HEAD
     const parser = () => {
         let code = codeRef.firstChild as HTMLElement;
         if(code != null)
@@ -20,10 +19,6 @@ const Code: Component = () => {
     onMount(() =>{
         document.addEventListener('click', handlerFocus);
         document.addEventListener('input', parser);
-=======
-    onMount(() =>{
-        document.addEventListener('click', handlerFocus);
->>>>>>> 0c2a066 (0.0.1 - alpha)
     })
 
     onCleanup(() => {
@@ -32,11 +27,7 @@ const Code: Component = () => {
 
     return (
         <pre ref={codeRef!}>
-<<<<<<< HEAD
             <code contenteditable data-placeholder='code block'></code>
-=======
-            <code contentEditable data-placeholder='code block'></code>
->>>>>>> 0c2a066 (0.0.1 - alpha)
         </pre>
     )
 }

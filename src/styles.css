@@ -7,11 +7,7 @@
     w-screen h-screen
 }
 
-<<<<<<< HEAD
 [contenteditable] {
-=======
-[contentEditable] {
->>>>>>> 0c2a066 (0.0.1 - alpha)
     @apply
     inline-block
     w-full
@@ -19,28 +15,15 @@
     outline-none
 }
 
-<<<<<<< HEAD
 [contenteditable]:hover {
-=======
-[contentEditable]:hover {
->>>>>>> 0c2a066 (0.0.1 - alpha)
     @apply
     rounded
     bg-zinc-100
     cursor-text
 }
 
-<<<<<<< HEAD
 /* maybe should use a different element property  */
 [contenteditable]:empty:not(:focus)::before {
-=======
-[contentEditable]:hover .hint {
-
-}
-
-/* maybe should use a different element property  */
-[contentEditable]:empty:not(:focus)::before {
->>>>>>> 0c2a066 (0.0.1 - alpha)
     content: attr(data-placeholder);
     @apply text-zinc-400
 }
