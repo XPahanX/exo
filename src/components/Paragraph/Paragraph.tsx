@@ -15,13 +15,11 @@ const Paragraph: Component = () => {
     ]);
 
     const handlerMouse = (event: MouseEvent) => {
-        if (paragraphRef.textContent == '')
+        if (paragraphRef.textContent == '' && paragraphRef.contains(event.target as Node))
             window.getSelection()?.setPosition(paragraphRef, 0);
     }
 
-    const handlerKeyboard = (event: KeyboardEvent) => {
-
-    }
+    const handlerKeyboard = (event: KeyboardEvent) => {}
     
     const filter = () => {
         const savedRange = saveCursorPosition(paragraphRef);
@@ -30,15 +28,15 @@ const Paragraph: Component = () => {
     }
 
     onMount(() =>{
-        paragraphRef.addEventListener('click', handlerMouse);
-        paragraphRef.addEventListener('keydown', handlerKeyboard);
-        paragraphRef.addEventListener('input', filter);
+        document.addEventListener('click', handlerMouse);
+        document.addEventListener('keydown', handlerKeyboard);
+        document.addEventListener('input', filter);
     })
 
     onCleanup(() => {
-        paragraphRef.removeEventListener('click', handlerMouse);
-        paragraphRef.removeEventListener('keydown', handlerKeyboard);
-        paragraphRef.removeEventListener('input', filter);
+        document.removeEventListener('click', handlerMouse);
+        document.removeEventListener('keydown', handlerKeyboard);
+        document.removeEventListener('input', filter);
     })
 
     onError(() => {})
